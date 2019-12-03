@@ -13,6 +13,7 @@
 		4A557E4F2390CFD2003E3BBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A557E4E2390CFD2003E3BBA /* Assets.xcassets */; };
 		4A557E522390CFD2003E3BBA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A557E512390CFD2003E3BBA /* Preview Assets.xcassets */; };
 		4A557E552390CFD2003E3BBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A557E532390CFD2003E3BBA /* LaunchScreen.storyboard */; };
+		4A557E61239677AC003E3BBA /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A557E60239677AC003E3BBA /* RecordManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4A557E512390CFD2003E3BBA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4A557E542390CFD2003E3BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A557E562390CFD2003E3BBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A557E60239677AC003E3BBA /* RecordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		4A557E472390CFCD003E3BBA /* Example-Audio */ = {
 			isa = PBXGroup;
 			children = (
+				4A557E5F239677AC003E3BBA /* Record */,
 				4A557E482390CFCD003E3BBA /* AppDelegate.swift */,
 				4A557E4A2390CFCD003E3BBA /* SceneDelegate.swift */,
 				4A557E4C2390CFCD003E3BBA /* ContentView.swift */,
@@ -73,6 +76,14 @@
 				4A557E512390CFD2003E3BBA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4A557E5F239677AC003E3BBA /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				4A557E60239677AC003E3BBA /* RecordManager.swift */,
+			);
+			path = Record;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A557E61239677AC003E3BBA /* RecordManager.swift in Sources */,
 				4A557E492390CFCD003E3BBA /* AppDelegate.swift in Sources */,
 				4A557E4B2390CFCD003E3BBA /* SceneDelegate.swift in Sources */,
 				4A557E4D2390CFCD003E3BBA /* ContentView.swift in Sources */,
@@ -286,6 +298,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Example-Audio/Preview Content\"";
+				DEVELOPMENT_TEAM = Y3G2JTS556;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Example-Audio/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -305,6 +318,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Example-Audio/Preview Content\"";
+				DEVELOPMENT_TEAM = Y3G2JTS556;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Example-Audio/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
