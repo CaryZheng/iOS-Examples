@@ -38,4 +38,10 @@ class RecordManager {
             print("Error: \(error.localizedDescription)")
         }
     }
+    
+    private func getFilePath() -> URL {
+        let dirPath = NSTemporaryDirectory()
+        let fullPath = dirPath + "test.caf"
+        return URL(fileURLWithPath: fullPath)
+    }
 }
