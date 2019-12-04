@@ -42,50 +42,28 @@ struct ContentView: View {
             
             List(recordItems, id: \.id) { item in
                 Text("\(item.id) : " + item.title)
+                    .background(Color.red)
             }
             
             HStack {
-                Button(action: {
+                MyButton(title: "开始录音", onButtonClicked: {
                     self.currentState = .recording
 
+                    RecordManager.getInstance().setupRecorder()
                     RecordManager.getInstance().startRecord()
-                }) {
-                    Text("开始录音")
-                        .foregroundColor(.blue)
-                        .padding()
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.blue, lineWidth: 1)
-                        )
-                }
-
-                Button(action: {
+                })
+                
+                MyButton(title: "停止录音", onButtonClicked: {
                     self.currentState = .stop
-
+                    
                     RecordManager.getInstance().stopRecord()
-                }) {
-                    Text("停止录音")
-                        .foregroundColor(.blue)
-                        .padding()
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.blue, lineWidth: 1)
-                        )
-                }
-
-                Button(action: {
+                })
+                
+                MyButton(title: "播放录音", onButtonClicked: {
                     self.currentState = .playing
-
+                    
                     RecordManager.getInstance().playRecord()
-                }) {
-                    Text("播放录音")
-                        .foregroundColor(.blue)
-                        .padding()
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color.blue, lineWidth: 1)
-                        )
-                }
+                })
             }
         }
         .frame(minWidth: 0, idealWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 0, maxHeight: .infinity, alignment: .top)

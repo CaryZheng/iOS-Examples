@@ -32,7 +32,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         RecordManager.getInstance().initRecord()
-        RecordManager.getInstance().setupRecorder()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -16,6 +16,7 @@
 		4A557E61239677AC003E3BBA /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A557E60239677AC003E3BBA /* RecordManager.swift */; };
 		4A557E6323979346003E3BBA /* AudioState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A557E6223979345003E3BBA /* AudioState.swift */; };
 		4A557E652397A533003E3BBA /* RecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A557E642397A533003E3BBA /* RecordItem.swift */; };
+		4A557E672397A627003E3BBA /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A557E662397A627003E3BBA /* MyButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4A557E60239677AC003E3BBA /* RecordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
 		4A557E6223979345003E3BBA /* AudioState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioState.swift; sourceTree = "<group>"; };
 		4A557E642397A533003E3BBA /* RecordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItem.swift; sourceTree = "<group>"; };
+		4A557E662397A627003E3BBA /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				4A557E60239677AC003E3BBA /* RecordManager.swift */,
 				4A557E6223979345003E3BBA /* AudioState.swift */,
 				4A557E642397A533003E3BBA /* RecordItem.swift */,
+				4A557E662397A627003E3BBA /* MyButton.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A557E61239677AC003E3BBA /* RecordManager.swift in Sources */,
+				4A557E672397A627003E3BBA /* MyButton.swift in Sources */,
 				4A557E492390CFCD003E3BBA /* AppDelegate.swift in Sources */,
 				4A557E4B2390CFCD003E3BBA /* SceneDelegate.swift in Sources */,
 				4A557E652397A533003E3BBA /* RecordItem.swift in Sources */,
