@@ -12,17 +12,42 @@ struct ContentView: View {
     @State
     private var currentState = AudioState.none
     
+    private var recordItems: [RecordItem] = [
+        RecordItem(id: 1, title: "View 1"),
+        RecordItem(id: 2, title: "View 2"),
+        RecordItem(id: 3, title: "View 3"),
+        RecordItem(id: 4, title: "View 4"),
+        RecordItem(id: 5, title: "View 5"),
+        RecordItem(id: 6, title: "View 6"),
+        RecordItem(id: 7, title: "View 7"),
+        RecordItem(id: 8, title: "View 8"),
+        RecordItem(id: 9, title: "View 9"),
+        RecordItem(id: 10, title: "View 10"),
+        RecordItem(id: 11, title: "View 11"),
+        RecordItem(id: 12, title: "View 12"),
+        RecordItem(id: 13, title: "View 13"),
+        RecordItem(id: 14, title: "View 14"),
+        RecordItem(id: 15, title: "View 15"),
+        RecordItem(id: 16, title: "View 16"),
+        RecordItem(id: 17, title: "View 17"),
+        RecordItem(id: 18, title: "View 18"),
+        RecordItem(id: 19, title: "View 19")
+    ]
+    
     var body: some View {
                 
         VStack {
             Text("当前状态：\(currentState.getStateInfo())")
                 .foregroundColor(Color.gray)
-            Spacer()
+            
+            List(recordItems, id: \.id) { item in
+                Text("\(item.id) : " + item.title)
+            }
             
             HStack {
                 Button(action: {
                     self.currentState = .recording
-                    
+
                     RecordManager.getInstance().startRecord()
                 }) {
                     Text("开始录音")
@@ -33,7 +58,7 @@ struct ContentView: View {
                                 .stroke(Color.blue, lineWidth: 1)
                         )
                 }
-                
+
                 Button(action: {
                     self.currentState = .stop
 

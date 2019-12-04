@@ -15,6 +15,7 @@
 		4A557E552390CFD2003E3BBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A557E532390CFD2003E3BBA /* LaunchScreen.storyboard */; };
 		4A557E61239677AC003E3BBA /* RecordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A557E60239677AC003E3BBA /* RecordManager.swift */; };
 		4A557E6323979346003E3BBA /* AudioState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A557E6223979345003E3BBA /* AudioState.swift */; };
+		4A557E652397A533003E3BBA /* RecordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A557E642397A533003E3BBA /* RecordItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		4A557E562390CFD2003E3BBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A557E60239677AC003E3BBA /* RecordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordManager.swift; sourceTree = "<group>"; };
 		4A557E6223979345003E3BBA /* AudioState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioState.swift; sourceTree = "<group>"; };
+		4A557E642397A533003E3BBA /* RecordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				4A557E60239677AC003E3BBA /* RecordManager.swift */,
 				4A557E6223979345003E3BBA /* AudioState.swift */,
+				4A557E642397A533003E3BBA /* RecordItem.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 				4A557E61239677AC003E3BBA /* RecordManager.swift in Sources */,
 				4A557E492390CFCD003E3BBA /* AppDelegate.swift in Sources */,
 				4A557E4B2390CFCD003E3BBA /* SceneDelegate.swift in Sources */,
+				4A557E652397A533003E3BBA /* RecordItem.swift in Sources */,
 				4A557E4D2390CFCD003E3BBA /* ContentView.swift in Sources */,
 				4A557E6323979346003E3BBA /* AudioState.swift in Sources */,
 			);
