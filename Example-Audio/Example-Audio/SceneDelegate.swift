@@ -26,11 +26,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: contentView)
+            window.rootViewController?.view.backgroundColor = .white
             self.window = window
             window.makeKeyAndVisible()
         }
         
         RecordManager.getInstance().initRecord()
+        RecordManager.getInstance().setupRecorder()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

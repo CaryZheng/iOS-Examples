@@ -10,27 +10,59 @@ import SwiftUI
 
 struct ContentView: View {
     @State
-    private var currentState = 1
+    private var currentState = AudioState.none
     
     var body: some View {
                 
-        VStack(alignment: .center) {
-            Text("当前状态：\(currentState)")
+        VStack {
+            Text("当前状态：\(currentState.getStateInfo())")
+                .foregroundColor(Color.gray)
             Spacer()
             
-            Button(action: {
-                self.currentState += 1
-            }) {
-                HStack {
-                    Text("Play")
+            HStack {
+                Button(action: {
+                    self.currentState = .recording
+                    
+                    RecordManager.getInstance().startRecord()
+                }) {
+                    Text("开始录音")
+                        .foregroundColor(.blue)
+                        .padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.blue, lineWidth: 1)
+                        )
                 }
-                .cornerRadius(40)
-                .padding(10)
-                .foregroundColor(.blue)
-                .background(LinearGradient(gradient: Gradient(colors: [.white, .black]), startPoint: .leading, endPoint: .trailing))
+                
+                Button(action: {
+                    self.currentState = .stop
+
+                    RecordManager.getInstance().stopRecord()
+                }) {
+                    Text("停止录音")
+                        .foregroundColor(.blue)
+                        .padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.blue, lineWidth: 1)
+                        )
+                }
+
+                Button(action: {
+                    self.currentState = .playing
+
+                    RecordManager.getInstance().playRecord()
+                }) {
+                    Text("播放录音")
+                        .foregroundColor(.blue)
+                        .padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.blue, lineWidth: 1)
+                        )
+                }
             }
         }
-        .background(Color.yellow)
         .frame(minWidth: 0, idealWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 0, maxHeight: .infinity, alignment: .top)
     }
 }
