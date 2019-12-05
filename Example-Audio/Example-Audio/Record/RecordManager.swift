@@ -17,6 +17,9 @@ class RecordManager: NSObject {
     private var mAudioRecorder: AVAudioRecorder!
     private var mAudioPlayer: AVAudioPlayer!
     
+    private var mRecordPathList: [String] = []
+    private var mLatestRecordPath = ""
+    
     static func getInstance() -> RecordManager {
         return sharedInstance
     }
@@ -43,6 +46,7 @@ class RecordManager: NSObject {
     
     func setupRecorder() {
         let fileURL = getFilePath()
+        mLatestRecordPath = fileURL.absoluteString
         
         let settings: [String: Any] = [
             AVFormatIDKey: kAudioFormatMPEG4AAC,
@@ -70,6 +74,8 @@ class RecordManager: NSObject {
     func stopRecord() {
         print("stopRecord")
         mAudioRecorder.stop()
+        
+        mRecordPathList.append(mLatestRecordPath)
     }
     
     /// 播放录音
@@ -88,10 +94,19 @@ class RecordManager: NSObject {
         }
     }
     
+    func getRecordPath() -> String {
+        return mLatestRecordPath
+    }
+    
     private func getFilePath() -> URL {
-        let dirPath = NSTemporaryDirectory()
-        let fullPath = dirPath + "test.aac"
-        return URL(fileURLWithPath: fullPath)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-DD hh:mm:ss"
+        let currentFileName = dateFormatter.string(from: Date()) + ".acc"
+        
+        let documentPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last
+        let filePath = documentPath! + "/" + currentFileName
+        
+        return URL.init(fileURLWithPath: filePath)
     }
 }
 

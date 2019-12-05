@@ -12,26 +12,27 @@ struct ContentView: View {
     @State
     private var currentState = AudioState.none
     
+    @State
     private var recordItems: [RecordItem] = [
-        RecordItem(id: 1, title: "View 1"),
-        RecordItem(id: 2, title: "View 2"),
-        RecordItem(id: 3, title: "View 3"),
-        RecordItem(id: 4, title: "View 4"),
-        RecordItem(id: 5, title: "View 5"),
-        RecordItem(id: 6, title: "View 6"),
-        RecordItem(id: 7, title: "View 7"),
-        RecordItem(id: 8, title: "View 8"),
-        RecordItem(id: 9, title: "View 9"),
-        RecordItem(id: 10, title: "View 10"),
-        RecordItem(id: 11, title: "View 11"),
-        RecordItem(id: 12, title: "View 12"),
-        RecordItem(id: 13, title: "View 13"),
-        RecordItem(id: 14, title: "View 14"),
-        RecordItem(id: 15, title: "View 15"),
-        RecordItem(id: 16, title: "View 16"),
-        RecordItem(id: 17, title: "View 17"),
-        RecordItem(id: 18, title: "View 18"),
-        RecordItem(id: 19, title: "View 19")
+//        RecordItem(id: 1, title: "View 1"),
+//        RecordItem(id: 2, title: "View 2"),
+//        RecordItem(id: 3, title: "View 3")
+//        RecordItem(id: 4, title: "View 4"),
+//        RecordItem(id: 5, title: "View 5"),
+//        RecordItem(id: 6, title: "View 6"),
+//        RecordItem(id: 7, title: "View 7"),
+//        RecordItem(id: 8, title: "View 8"),
+//        RecordItem(id: 9, title: "View 9"),
+//        RecordItem(id: 10, title: "View 10"),
+//        RecordItem(id: 11, title: "View 11"),
+//        RecordItem(id: 12, title: "View 12"),
+//        RecordItem(id: 13, title: "View 13"),
+//        RecordItem(id: 14, title: "View 14"),
+//        RecordItem(id: 15, title: "View 15"),
+//        RecordItem(id: 16, title: "View 16"),
+//        RecordItem(id: 17, title: "View 17"),
+//        RecordItem(id: 18, title: "View 18"),
+//        RecordItem(id: 19, title: "View 19")
     ]
     
     var body: some View {
@@ -57,6 +58,8 @@ struct ContentView: View {
                     self.currentState = .stop
                     
                     RecordManager.getInstance().stopRecord()
+                    
+                    self.addItem()
                 })
                 
                 MyButton(title: "播放录音", onButtonClicked: {
@@ -67,6 +70,11 @@ struct ContentView: View {
             }
         }
         .frame(minWidth: 0, idealWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 0, maxHeight: .infinity, alignment: .top)
+    }
+    
+    func addItem() {
+        let path = RecordManager.getInstance().getRecordPath()
+        recordItems.append(RecordItem(id: recordItems.count+1, title: path))
     }
 }
 
