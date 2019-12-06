@@ -42,8 +42,25 @@ struct ContentView: View {
                 .foregroundColor(Color.gray)
             
             List(recordItems, id: \.id) { item in
-                Text("\(item.id) : " + item.title)
-                    .background(Color.red)
+                HStack {
+                    Text("\(item.id) : " + item.title)
+                        .background(Color.red)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        self.onItemPlayButtonClicked(item: item)
+                    }) {
+                        Text("播放")
+                            .foregroundColor(.blue)
+                            .font(.system(size: 14))
+                            .padding(8)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.blue, lineWidth: 1)
+                            )
+                    }
+                }
             }
             
             HStack {
@@ -62,18 +79,22 @@ struct ContentView: View {
                     self.addItem()
                 })
                 
-                MyButton(title: "播放录音", onButtonClicked: {
-                    self.currentState = .playing
-                    
-                    RecordManager.getInstance().playRecord()
-                })
+//                MyButton(title: "播放录音", onButtonClicked: {
+//                    self.currentState = .playing
+//
+//                    RecordManager.getInstance().playRecord()
+//                })
             }
         }
         .frame(minWidth: 0, idealWidth: 0, maxWidth: .infinity, minHeight: 0, idealHeight: 0, maxHeight: .infinity, alignment: .top)
     }
     
-    func addItem() {
-        let path = RecordManager.getInstance().getRecordPath()
+    private func onItemPlayButtonClicked(item: RecordItem) {
+        RecordManager.getInstance().playRecord(index: item.id-1)
+    }
+    
+    private func addItem() {
+        let path = RecordManager.getInstance().getRecordFilename()
         recordItems.append(RecordItem(id: recordItems.count+1, title: path))
     }
 }

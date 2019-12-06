@@ -17,8 +17,9 @@ class RecordManager: NSObject {
     private var mAudioRecorder: AVAudioRecorder!
     private var mAudioPlayer: AVAudioPlayer!
     
-    private var mRecordPathList: [String] = []
-    private var mLatestRecordPath = ""
+    private var mRecordPathList: [URL] = []
+    private var mLatestRecordPath: URL!
+    private var mLatestRecordFilename = ""
     
     static func getInstance() -> RecordManager {
         return sharedInstance
@@ -45,8 +46,10 @@ class RecordManager: NSObject {
     }
     
     func setupRecorder() {
-        let fileURL = getFilePath()
-        mLatestRecordPath = fileURL.absoluteString
+        let filePath = getFilePath()
+        
+        mLatestRecordFilename = filePath.filename
+        mLatestRecordPath = filePath.url
         
         let settings: [String: Any] = [
             AVFormatIDKey: kAudioFormatMPEG4AAC,
@@ -56,7 +59,7 @@ class RecordManager: NSObject {
         ]
         
         do {
-            mAudioRecorder = try AVAudioRecorder(url: fileURL, settings: settings)
+            mAudioRecorder = try AVAudioRecorder(url: filePath.url, settings: settings)
             mAudioRecorder.delegate = self
             mAudioRecorder.prepareToRecord()
         } catch {
@@ -79,34 +82,39 @@ class RecordManager: NSObject {
     }
     
     /// 播放录音
-    func playRecord() {
-        print("playRecord")
-        let fileURL = getFilePath()
+    func playRecord(index: Int) {
+        let filePath = mRecordPathList[index]
+        print("playRecord, filePath = \(filePath)")
         
         do {
-            mAudioPlayer = try AVAudioPlayer(contentsOf: fileURL)
+            if nil != mAudioPlayer {
+                mAudioPlayer = nil
+            }
+            
+            mAudioPlayer = try AVAudioPlayer(contentsOf: filePath)
             mAudioPlayer.delegate = self
+            
             if mAudioPlayer.duration > 0 {
                 mAudioPlayer.play()
             }
-        } catch {
-            print("playRecord fail")
+        } catch let error {
+            print("playRecord fail, error = \(error.localizedDescription)")
         }
     }
     
-    func getRecordPath() -> String {
-        return mLatestRecordPath
+    func getRecordFilename() -> String {
+        return mLatestRecordFilename
     }
     
-    private func getFilePath() -> URL {
+    private func getFilePath() -> (url: URL, filename: String) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-DD hh:mm:ss"
-        let currentFileName = dateFormatter.string(from: Date()) + ".acc"
-        
+        dateFormatter.dateFormat = "YYYY-MM-DD_hh:mm:ss"
+        let currentFileName = dateFormatter.string(from: Date()) + ".aac"
+
         let documentPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last
         let filePath = documentPath! + "/" + currentFileName
-        
-        return URL.init(fileURLWithPath: filePath)
+
+        return (URL.init(fileURLWithPath: filePath), currentFileName)
     }
 }
 
