@@ -15,6 +15,8 @@
 		4A3F6E4E23A0D97100DC0162 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A3F6E4C23A0D97100DC0162 /* LaunchScreen.storyboard */; };
 		4A3F6E5723A0E05B00DC0162 /* View1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F6E5623A0E05A00DC0162 /* View1.swift */; };
 		4A3F6E5923A0E13200DC0162 /* View11.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F6E5823A0E13200DC0162 /* View11.swift */; };
+		4A9C1C5523A20EE30018FEC5 /* View111.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9C1C5423A20EE30018FEC5 /* View111.swift */; };
+		4A9C1C5723A20F0A0018FEC5 /* View12.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9C1C5623A20F0A0018FEC5 /* View12.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		4A3F6E4F23A0D97100DC0162 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A3F6E5623A0E05A00DC0162 /* View1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View1.swift; sourceTree = "<group>"; };
 		4A3F6E5823A0E13200DC0162 /* View11.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View11.swift; sourceTree = "<group>"; };
+		4A9C1C5423A20EE30018FEC5 /* View111.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View111.swift; sourceTree = "<group>"; };
+		4A9C1C5623A20F0A0018FEC5 /* View12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View12.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,8 @@
 			children = (
 				4A3F6E5623A0E05A00DC0162 /* View1.swift */,
 				4A3F6E5823A0E13200DC0162 /* View11.swift */,
+				4A9C1C5423A20EE30018FEC5 /* View111.swift */,
+				4A9C1C5623A20F0A0018FEC5 /* View12.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -156,6 +162,8 @@
 				4A3F6E4623A0D96B00DC0162 /* ViewController.swift in Sources */,
 				4A3F6E4223A0D96B00DC0162 /* AppDelegate.swift in Sources */,
 				4A3F6E5723A0E05B00DC0162 /* View1.swift in Sources */,
+				4A9C1C5523A20EE30018FEC5 /* View111.swift in Sources */,
+				4A9C1C5723A20F0A0018FEC5 /* View12.swift in Sources */,
 				4A3F6E4423A0D96B00DC0162 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
