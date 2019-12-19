@@ -30,6 +30,8 @@ import UIKit
 
 class RevealViewController: UIViewController {
   
+  var destinationFrame: CGRect!
+  
   @IBOutlet weak var titleLabel: UILabel!
   @IBOutlet weak var imageView: UIImageView!
   
@@ -39,9 +41,23 @@ class RevealViewController: UIViewController {
     super.viewDidLoad()
     titleLabel.text = petCard?.name
     imageView.image = petCard?.image
+    
+    self.transitioningDelegate = self
   }
   
   @IBAction func dismissPressed(_ sender: UIButton) {
     dismiss(animated: true, completion: nil)
+  }
+}
+
+extension RevealViewController: UIViewControllerTransitioningDelegate {
+  
+  func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    guard let _ = dismissed as? RevealViewController else {
+      return nil
+    }
+    
+    print("RevealViewController animationController destinationFrame = \(String(describing: destinationFrame))")
+    return FlipDismissAnimationController(destinationFrame: destinationFrame)
   }
 }

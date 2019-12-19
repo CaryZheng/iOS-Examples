@@ -49,6 +49,7 @@ class CardViewController: UIViewController {
     if segueIdentifier(for: segue) == .reveal,
       let destinationViewController = segue.destination as? RevealViewController {
       destinationViewController.petCard = petCard
+      destinationViewController.destinationFrame = cardView.frame
       destinationViewController.transitioningDelegate = self
     }
   }
