@@ -1,15 +1,15 @@
-/// Copyright (c) 2017 Razeware LLC
-///
+///// Copyright (c) 2017 Razeware LLC
+/// 
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
 /// of this software and associated documentation files (the "Software"), to deal
 /// in the Software without restriction, including without limitation the rights
 /// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
-///
+/// 
 /// The above copyright notice and this permission notice shall be included in
 /// all copies or substantial portions of the Software.
-///
+/// 
 /// Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
 /// distribute, sublicense, create a derivative work, and/or sell copies of the
 /// Software in any work that is designed, intended, or marketed for pedagogical or
@@ -17,7 +17,7 @@
 /// or information technology.  Permission for such use, copying, modification,
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
-///
+/// 
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -28,50 +28,51 @@
 
 import UIKit
 
-class RevealViewController: UIViewController {
+class SwipeInteractionController: UIPercentDrivenInteractiveTransition {
   
-  var destinationFrame: CGRect!
+  var interactionInProgress = false
   
-  var swipeInteractionController: SwipeInteractionController?
+  private var shouldCompleteTransition = false
+  private weak var viewController: UIViewController!
   
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var imageView: UIImageView!
-  
-  var petCard: PetCard?
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    titleLabel.text = petCard?.name
-    imageView.image = petCard?.image
+  init(viewController: UIViewController) {
+    super.init()
     
-    self.transitioningDelegate = self
-    
-    swipeInteractionController = SwipeInteractionController(viewController: self)
+    self.viewController = viewController
+    prepareGestureRecognizer(in: viewController.view)
   }
   
-  @IBAction func dismissPressed(_ sender: UIButton) {
-    dismiss(animated: true, completion: nil)
+  private func prepareGestureRecognizer(in view: UIView) {
+    let gesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
+    gesture.edges = .left
+    view.addGestureRecognizer(gesture)
   }
-}
-
-extension RevealViewController: UIViewControllerTransitioningDelegate {
   
-  func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    guard let revealVC = dismissed as? RevealViewController else {
-      return nil
+  @objc private func handleGesture(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
+    let translation = gestureRecognizer.translation(in: gestureRecognizer.view?.superview)
+    var progress = translation.x / 200
+    progress = CGFloat(fminf(fmaxf(Float(progress), 0.0), 1.0))
+    
+    switch gestureRecognizer.state {
+    case .began:
+      interactionInProgress = true
+      viewController.dismiss(animated: true, completion: nil)
+    case .changed:
+      shouldCompleteTransition = progress > 0.5
+      update(progress)
+    case .cancelled:
+      interactionInProgress = false
+      cancel()
+    case .ended:
+      interactionInProgress = false
+      if shouldCompleteTransition {
+        finish()
+      } else {
+        cancel()
+      }
+    default:
+      break
     }
-    
-    print("RevealViewController animationController destinationFrame = \(String(describing: destinationFrame))")
-    return FlipDismissAnimationController(destinationFrame: destinationFrame, interactionController: revealVC.swipeInteractionController)
   }
   
-  func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-    guard let animator = animator as? FlipDismissAnimationController,
-    let interactionController = animator.interactionController,
-      interactionController.interactionInProgress else {
-        return nil
-    }
-    
-    return interactionController
-  }
 }
