@@ -9,26 +9,8 @@
 import Foundation
 
 class DataManager {
-    
-    private static var mInstance: DataManager!
-    
-    @MyUserDefault(key: "username", defaultValue: "")
-    var username: String
-    
-    static func getInstance() -> DataManager {
-        if nil == mInstance {
-            mInstance = DataManager()
-        }
         
-        return mInstance
-    }
-    
-    func setUsername(value: String) {
-        username = value
-    }
-    
-    func getUsername() -> String {
-        return username
-    }
+    @MyUserDefault(key: "username", defaultValue: "")
+    static var username: String
     
 }

@@ -11,20 +11,19 @@ import SwiftUI
 struct ContentView: View {
     
     @State
-    private var username: String = DataManager.getInstance().getUsername()
+    private var username: String = DataManager.username
     
     var body: some View {
         
         VStack {
             HStack {
-                Text("Value1: \(username)")
+                Text("Value: \(username)")
             }.padding()
             
             HStack {
                 Button(action: {
-                    DataManager.getInstance().setUsername(value: "Cary1 with PropertyWrapper")
-                    
-                    self.username = DataManager.getInstance().getUsername()
+                    DataManager.username = "SwiftMic 1 with PropertyWrapper"
+                    self.username = DataManager.username
                 }) {
                     Text("测试1")
                         .foregroundColor(.blue)
@@ -36,7 +35,7 @@ struct ContentView: View {
                 }
                 
                 Button(action: {
-                    UserDefaults.standard.set("Cary2 with default", forKey: "username")
+                    UserDefaults.standard.set("SwiftMic 2 with default", forKey: "username")
                     
                     self.username = (UserDefaults.standard.object(forKey: "username") as? String) ?? ""
                 }) {
