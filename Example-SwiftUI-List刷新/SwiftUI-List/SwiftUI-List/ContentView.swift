@@ -12,7 +12,7 @@ struct ContentView: View {
     @State var numbers: [Int] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
  
     var body: some View {
-        RefreshableNavigationView(title: "Test123", action: {
+        RefreshableNavigationView(title: "Test", onRefresh: {
             self.numbers.append(self.getTestData())
         }) {
             ForEach(self.numbers, id: \.self) { number in

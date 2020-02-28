@@ -9,7 +9,9 @@
 import SwiftUI
 
 struct Spinner: View {
+    
     @Binding var percentage: CGFloat
+    
     var body: some View {
         GeometryReader{ geometry in
             ForEach(1...10, id: \.self) { i in

@@ -12,18 +12,18 @@ struct RefreshableList<Content: View>: View {
     
     @Binding var showRefreshView: Bool
     @Binding var pullStatus: CGFloat
-    private let action: () -> Void
+    private let onRefresh: () -> Void
     private let content: () -> Content
     
-    init(showRefreshView: Binding<Bool>, pullStatus: Binding<CGFloat>, action: @escaping () -> Void, @ViewBuilder content: @escaping () -> Content) {
+    init(showRefreshView: Binding<Bool>, pullStatus: Binding<CGFloat>, onRefresh: @escaping () -> Void, @ViewBuilder content: @escaping () -> Content) {
         self._showRefreshView = showRefreshView
         self._pullStatus = pullStatus
-        self.action = action
+        self.onRefresh = onRefresh
         self.content = content
     }
     
     var body: some View {
-        List{
+        List {
             PullToRefreshView(showRefreshView: $showRefreshView, pullStatus: $pullStatus)
             content()
         }
@@ -31,7 +31,8 @@ struct RefreshableList<Content: View>: View {
             guard let bounds = values.first?.bounds else { return }
             self.pullStatus = CGFloat((bounds.origin.y - 106) / 80)
             self.refresh(offset: bounds.origin.y)
-        }.offset(x: 0, y: -40)
+        }
+        .offset(x: 0, y: -40)
     }
     
     func refresh(offset: CGFloat) {
@@ -39,7 +40,7 @@ struct RefreshableList<Content: View>: View {
             self.showRefreshView = true
             
             DispatchQueue.main.async {
-                self.action()
+                self.onRefresh()
                 DispatchQueue.main.asyncAfter(deadline: .now()+1.0) {
                     self.showRefreshView = false
                 }

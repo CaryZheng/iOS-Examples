@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct RefreshView: View {
+    
     @Binding var isRefreshing: Bool
     @Binding var status: CGFloat
     
@@ -18,7 +19,7 @@ struct RefreshView: View {
             VStack(alignment: .center) {
                 if (!isRefreshing) {
                     Spinner(percentage: $status)
-                }else{
+                } else {
                     ActivityIndicator(isAnimating: .constant(true), style: .large)
                 }
                 Text(isRefreshing ? "Loading" : "Pull to refresh").font(.caption)

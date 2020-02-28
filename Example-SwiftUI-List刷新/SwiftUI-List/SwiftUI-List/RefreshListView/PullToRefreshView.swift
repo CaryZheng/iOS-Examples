@@ -16,7 +16,8 @@ struct PullToRefreshView: View {
     var body: some View {
         GeometryReader { geometry in
             RefreshView(isRefreshing: self.$showRefreshView, status: self.$pullStatus)
-                .opacity(Double((geometry.frame(in: CoordinateSpace.global).origin.y - 106) / 80)).preference(key: RefreshableKeyTypes.PrefKey.self, value: [RefreshableKeyTypes.PrefData(bounds: geometry.frame(in: CoordinateSpace.global))])
+                .opacity(Double((geometry.frame(in: CoordinateSpace.global).origin.y - 106) / 80))
+                .preference(key: RefreshableKeyTypes.PrefKey.self, value: [RefreshableKeyTypes.PrefData(bounds: geometry.frame(in: CoordinateSpace.global))])
                 .offset(x: 0, y: -90)
         }
     }
