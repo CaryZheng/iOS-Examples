@@ -9,5 +9,7 @@
         <page name='MemoryManagement'/>
         <page name='Flatmap'/>
         <page name='CombiningPublishers'/>
+        <page name='FuturePromises'/>
+        <page name='CustomUIKit'/>
     </pages>
 </playground>
