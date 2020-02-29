@@ -4,5 +4,10 @@
         <page name='Just'/>
         <page name='PassthroughSubject'/>
         <page name='Operators'/>
+        <page name='SubscriptionEvents'/>
+        <page name='UILabel'/>
+        <page name='MemoryManagement'/>
+        <page name='Flatmap'/>
+        <page name='CombiningPublishers'/>
     </pages>
 </playground>
