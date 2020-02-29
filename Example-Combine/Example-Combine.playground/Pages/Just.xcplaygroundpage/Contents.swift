@@ -1,7 +1,11 @@
+import Combine
+
 //: [Previous](@previous)
 
-import Foundation
+let publisher = Just(98)
 
-var str = "Hello, playground"
+let subscription = publisher.sink { value in
+    print("Received value: \(value)")
+}
 
 //: [Next](@next)
