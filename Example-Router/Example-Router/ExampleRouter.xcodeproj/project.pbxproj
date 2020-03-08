@@ -12,16 +12,22 @@
 		4A2441A5240E5C4300EFF371 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2441A4240E5C4300EFF371 /* ViewController.swift */; };
 		4A2441AA240E5C4700EFF371 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A2441A9240E5C4700EFF371 /* Assets.xcassets */; };
 		4A2441AD240E5C4700EFF371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A2441AB240E5C4700EFF371 /* LaunchScreen.storyboard */; };
+		4A9C7D2224155032001A1C6E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9C7D2124155032001A1C6E /* RegisterViewController.swift */; };
+		4AACAB84240E9756008C5E98 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACAB83240E9756008C5E98 /* Router.swift */; };
+		4AACAB87240F8FE6008C5E98 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACAB86240F8FE6008C5E98 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4A24419D240E5C4300EFF371 /* Example-Router.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-Router.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A24419D240E5C4300EFF371 /* ExampleRouter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleRouter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A2441A0240E5C4300EFF371 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A2441A2240E5C4300EFF371 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4A2441A4240E5C4300EFF371 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4A2441A9240E5C4700EFF371 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A2441AC240E5C4700EFF371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4A2441AE240E5C4700EFF371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A9C7D2124155032001A1C6E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		4AACAB83240E9756008C5E98 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		4AACAB86240F8FE6008C5E98 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +52,7 @@
 		4A24419E240E5C4300EFF371 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4A24419D240E5C4300EFF371 /* Example-Router.app */,
+				4A24419D240E5C4300EFF371 /* ExampleRouter.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,6 +60,8 @@
 		4A24419F240E5C4300EFF371 /* Example-Router */ = {
 			isa = PBXGroup;
 			children = (
+				4AACAB85240F8FBD008C5E98 /* ViewController */,
+				4AACAB80240E964C008C5E98 /* Router */,
 				4A2441A0240E5C4300EFF371 /* AppDelegate.swift */,
 				4A2441A2240E5C4300EFF371 /* SceneDelegate.swift */,
 				4A2441A4240E5C4300EFF371 /* ViewController.swift */,
@@ -64,12 +72,29 @@
 			path = "Example-Router";
 			sourceTree = "<group>";
 		};
+		4AACAB80240E964C008C5E98 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				4AACAB83240E9756008C5E98 /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		4AACAB85240F8FBD008C5E98 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4AACAB86240F8FE6008C5E98 /* LoginViewController.swift */,
+				4A9C7D2124155032001A1C6E /* RegisterViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4A24419C240E5C4300EFF371 /* Example-Router */ = {
+		4A24419C240E5C4300EFF371 /* ExampleRouter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A2441B1240E5C4700EFF371 /* Build configuration list for PBXNativeTarget "Example-Router" */;
+			buildConfigurationList = 4A2441B1240E5C4700EFF371 /* Build configuration list for PBXNativeTarget "ExampleRouter" */;
 			buildPhases = (
 				4A244199240E5C4300EFF371 /* Sources */,
 				4A24419A240E5C4300EFF371 /* Frameworks */,
@@ -79,9 +104,9 @@
 			);
 			dependencies = (
 			);
-			name = "Example-Router";
+			name = ExampleRouter;
 			productName = "Example-Router";
-			productReference = 4A24419D240E5C4300EFF371 /* Example-Router.app */;
+			productReference = 4A24419D240E5C4300EFF371 /* ExampleRouter.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +124,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4A244198240E5C4300EFF371 /* Build configuration list for PBXProject "Example-Router" */;
+			buildConfigurationList = 4A244198240E5C4300EFF371 /* Build configuration list for PBXProject "ExampleRouter" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,7 +137,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4A24419C240E5C4300EFF371 /* Example-Router */,
+				4A24419C240E5C4300EFF371 /* ExampleRouter */,
 			);
 		};
 /* End PBXProject section */
@@ -134,8 +159,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AACAB87240F8FE6008C5E98 /* LoginViewController.swift in Sources */,
 				4A2441A5240E5C4300EFF371 /* ViewController.swift in Sources */,
 				4A2441A1240E5C4300EFF371 /* AppDelegate.swift in Sources */,
+				4A9C7D2224155032001A1C6E /* RegisterViewController.swift in Sources */,
+				4AACAB84240E9756008C5E98 /* Router.swift in Sources */,
 				4A2441A3240E5C4300EFF371 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,7 +333,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4A244198240E5C4300EFF371 /* Build configuration list for PBXProject "Example-Router" */ = {
+		4A244198240E5C4300EFF371 /* Build configuration list for PBXProject "ExampleRouter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A2441AF240E5C4700EFF371 /* Debug */,
@@ -314,7 +342,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4A2441B1240E5C4700EFF371 /* Build configuration list for PBXNativeTarget "Example-Router" */ = {
+		4A2441B1240E5C4700EFF371 /* Build configuration list for PBXNativeTarget "ExampleRouter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A2441B2240E5C4700EFF371 /* Debug */,
