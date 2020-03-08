@@ -9,32 +9,6 @@
 import UIKit
 import SafariServices
 
-enum RoutePath {
-    case login(LoginViewController.User)
-    case register
-    
-    func getValue() -> String {
-        var result = ""
-        
-        switch self {
-        case .login(_):
-            result = "LoginViewController"
-        case .register:
-            result = "RegisterViewController"
-        }
-        
-        return result
-    }
-}
-
-protocol IRouteParam {
-    
-}
-
-protocol IRouterPage {
-    func initWithParams(_ param: IRouteParam)
-}
-
 class Router {
     
     static func open(path: RoutePath, fromVC: UIViewController) {
@@ -62,12 +36,7 @@ class Router {
             let targetInstance = targetClass.init()
             
             if let routerPage = targetInstance as? IRouterPage {
-                switch path {
-                case .login(let user):
-                    routerPage.initWithParams(user)
-                default:
-                    break
-                }
+                RoutePath.handleParam(routePath: path, routerPage: routerPage)
             }
             
             fromVC.navigationController?.pushViewController(targetInstance, animated: true)
