@@ -10,10 +10,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    struct User: IRouteParam {
-        var username: String
-    }
-    
     private var mData: User!
     
     override func viewDidLoad() {

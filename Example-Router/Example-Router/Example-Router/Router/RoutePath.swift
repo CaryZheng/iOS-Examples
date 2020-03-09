@@ -9,7 +9,7 @@
 import Foundation
 
 enum RoutePath {
-    case login(LoginViewController.User)
+    case login(User)
     case register
     
     func getValue() -> String {

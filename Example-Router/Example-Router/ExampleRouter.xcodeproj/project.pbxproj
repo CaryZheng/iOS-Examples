@@ -16,6 +16,7 @@
 		4A9C7D24241551F5001A1C6E /* RoutePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9C7D23241551F5001A1C6E /* RoutePath.swift */; };
 		4A9C7D2624155208001A1C6E /* IRouterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9C7D2524155208001A1C6E /* IRouterPage.swift */; };
 		4A9C7D2824155219001A1C6E /* IRouteParam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9C7D2724155219001A1C6E /* IRouteParam.swift */; };
+		4A9C7D2B24162992001A1C6E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9C7D2A24162992001A1C6E /* User.swift */; };
 		4AACAB84240E9756008C5E98 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACAB83240E9756008C5E98 /* Router.swift */; };
 		4AACAB87240F8FE6008C5E98 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACAB86240F8FE6008C5E98 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		4A9C7D23241551F5001A1C6E /* RoutePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutePath.swift; sourceTree = "<group>"; };
 		4A9C7D2524155208001A1C6E /* IRouterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRouterPage.swift; sourceTree = "<group>"; };
 		4A9C7D2724155219001A1C6E /* IRouteParam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRouteParam.swift; sourceTree = "<group>"; };
+		4A9C7D2A24162992001A1C6E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4AACAB83240E9756008C5E98 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		4AACAB86240F8FE6008C5E98 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +68,7 @@
 		4A24419F240E5C4300EFF371 /* Example-Router */ = {
 			isa = PBXGroup;
 			children = (
+				4A9C7D2924162976001A1C6E /* RouteParam */,
 				4AACAB85240F8FBD008C5E98 /* ViewController */,
 				4AACAB80240E964C008C5E98 /* Router */,
 				4A2441A0240E5C4300EFF371 /* AppDelegate.swift */,
@@ -76,6 +79,14 @@
 				4A2441AE240E5C4700EFF371 /* Info.plist */,
 			);
 			path = "Example-Router";
+			sourceTree = "<group>";
+		};
+		4A9C7D2924162976001A1C6E /* RouteParam */ = {
+			isa = PBXGroup;
+			children = (
+				4A9C7D2A24162992001A1C6E /* User.swift */,
+			);
+			path = RouteParam;
 			sourceTree = "<group>";
 		};
 		4AACAB80240E964C008C5E98 /* Router */ = {
@@ -176,6 +187,7 @@
 				4A9C7D2224155032001A1C6E /* RegisterViewController.swift in Sources */,
 				4AACAB84240E9756008C5E98 /* Router.swift in Sources */,
 				4A2441A3240E5C4300EFF371 /* SceneDelegate.swift in Sources */,
+				4A9C7D2B24162992001A1C6E /* User.swift in Sources */,
 				4A9C7D24241551F5001A1C6E /* RoutePath.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     private func test() {
 //        Router.open(urlLink: "https://www.carymic.com", fromVC: self)
         
-        let user = LoginViewController.User(username: "Tony")
+        let user = User(username: "Tony")
         Router.open(path: .login(user), fromVC: self)
         
 //        Router.open(path: .register, fromVC: self)
