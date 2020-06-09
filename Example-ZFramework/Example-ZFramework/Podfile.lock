@@ -1,0 +1,28 @@
+PODS:
+  - Alamofire (5.2.1)
+  - ModuleCommon (0.0.1)
+  - ModuleUser (0.0.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.2)
+  - ModuleCommon (from `./ModuleCommon`)
+  - ModuleUser (from `./ModuleUser`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+
+EXTERNAL SOURCES:
+  ModuleCommon:
+    :path: "./ModuleCommon"
+  ModuleUser:
+    :path: "./ModuleUser"
+
+SPEC CHECKSUMS:
+  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
+  ModuleCommon: b8312d5544322255779a584b4d557c176c36a7e8
+  ModuleUser: 02f92657ef58a73ca345566e6dcd1c699e24781d
+
+PODFILE CHECKSUM: f40696fdb7103b161c60502087d1d3c54afd6881
+
+COCOAPODS: 1.9.1

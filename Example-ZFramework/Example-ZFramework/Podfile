@@ -1,0 +1,9 @@
+platform :ios, '10.0'
+use_frameworks!
+
+target 'Example-ZFramework' do
+  pod 'Alamofire', '~> 5.2'
+  
+  pod 'ModuleCommon', :path => './ModuleCommon'
+  pod 'ModuleUser', :path => './ModuleUser'
+end
