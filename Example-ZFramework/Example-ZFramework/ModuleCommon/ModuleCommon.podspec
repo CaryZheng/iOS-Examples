@@ -20,7 +20,7 @@ Pod::Spec.new do |spec|
   spec.author       = "Cary"
 
   spec.platform     = :ios
-  spec.ios.deployment_target = "10.0"
+  spec.ios.deployment_target = "13.0"
 
   spec.source       = { :git => "http://zzb/ModuleCommon.git", :tag => "#{spec.version}" }
   spec.source_files  = "Classes", "Classes/**/*.{h,m,swift}"

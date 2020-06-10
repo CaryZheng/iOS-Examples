@@ -7,7 +7,7 @@
   "license": "MIT",
   "authors": "Cary",
   "platforms": {
-    "ios": "10.0"
+    "ios": "13.0"
   },
   "source": {
     "git": "http://zzb/ModuleUser.git",

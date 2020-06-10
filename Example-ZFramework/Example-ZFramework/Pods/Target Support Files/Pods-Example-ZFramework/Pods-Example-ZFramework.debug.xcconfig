@@ -1,9 +1,9 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire" "${PODS_CONFIGURATION_BUILD_DIR}/ModuleCommon" "${PODS_CONFIGURATION_BUILD_DIR}/ModuleUser"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire" "${PODS_CONFIGURATION_BUILD_DIR}/ModuleA" "${PODS_CONFIGURATION_BUILD_DIR}/ModuleCommon" "${PODS_CONFIGURATION_BUILD_DIR}/ModuleLogin" "${PODS_CONFIGURATION_BUILD_DIR}/ModuleUser"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/ModuleCommon/ModuleCommon.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/ModuleUser/ModuleUser.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/ModuleA/ModuleA.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/ModuleCommon/ModuleCommon.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/ModuleLogin/ModuleLogin.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/ModuleUser/ModuleUser.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -framework "Alamofire" -framework "CFNetwork" -framework "ModuleCommon" -framework "ModuleUser"
+OTHER_LDFLAGS = $(inherited) -framework "Alamofire" -framework "CFNetwork" -framework "ModuleA" -framework "ModuleCommon" -framework "ModuleLogin" -framework "ModuleUser"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)

@@ -7,10 +7,20 @@
 //
 
 import SwiftUI
+import ModuleLogin
 
 struct ContentView: View {
+    
     var body: some View {
-        Text("Hello, World!")
+        NavigationView {
+            VStack {
+                Text("Hello, World!").padding(40)
+                
+                NavigationLink(destination: LoginContentView()) {
+                   Text("跳转到Login页面")
+                }
+            }.navigationBarTitle("ContentView", displayMode: .inline)
+        }
     }
 }
 

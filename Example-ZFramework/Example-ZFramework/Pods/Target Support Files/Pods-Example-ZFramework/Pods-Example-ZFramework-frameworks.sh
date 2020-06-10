@@ -198,12 +198,16 @@ fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ModuleA/ModuleA.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ModuleCommon/ModuleCommon.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ModuleLogin/ModuleLogin.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ModuleUser/ModuleUser.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ModuleA/ModuleA.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ModuleCommon/ModuleCommon.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/ModuleLogin/ModuleLogin.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ModuleUser/ModuleUser.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

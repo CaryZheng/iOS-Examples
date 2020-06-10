@@ -1,16 +1,16 @@
 {
-  "name": "ModuleCommon",
+  "name": "ModuleLogin",
   "version": "0.0.1",
-  "summary": "A short description of ModuleCommon.",
-  "description": "ModuleCommon",
-  "homepage": "http://zzb/ModuleCommon",
+  "summary": "A short description of ModuleLogin.",
+  "description": "ModuleLogin",
+  "homepage": "http://zzb/ModuleLogin",
   "license": "MIT",
   "authors": "Cary",
   "platforms": {
     "ios": "13.0"
   },
   "source": {
-    "git": "http://zzb/ModuleCommon.git",
+    "git": "http://zzb/ModuleLogin.git",
     "tag": "0.0.1"
   },
   "source_files": [

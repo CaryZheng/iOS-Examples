@@ -8,21 +8,21 @@
 
 Pod::Spec.new do |spec|
 
-  spec.name         = "ModuleUser"
+  spec.name         = "ModuleA"
   spec.version      = "0.0.1"
-  spec.summary      = "A short description of ModuleUser."
+  spec.summary      = "A short description of ModuleA."
   spec.description  = <<-DESC
-      ModuleUser
+      ModuleA
                    DESC
 
-  spec.homepage     = "http://zzb/ModuleUser"
+  spec.homepage     = "http://zzb/ModuleA"
   spec.license      = "MIT"
   spec.author       = "Cary"
 
   spec.platform     = :ios
   spec.ios.deployment_target = "13.0"
 
-  spec.source       = { :git => "http://zzb/ModuleUser.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "http://zzb/ModuleA.git", :tag => "#{spec.version}" }
   spec.source_files  = "Classes", "Classes/**/*.{h,m,swift}"
   spec.exclude_files = "Classes/Exclude"
   spec.resources    = "Resources/**/*.{xib,storyboard,bundle,xcassets,aac,plist,xml,json,strings,html,css,js}"
