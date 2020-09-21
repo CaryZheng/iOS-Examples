@@ -15,6 +15,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        self.view.backgroundColor = UIColor.white
+        
         let button = UIButton(type:UIButton.ButtonType.custom)
         button.addTarget(self, action: #selector(showFlutter), for: .touchUpInside)
         button.setTitle("Show Flutter!", for: UIControl.State.normal)
@@ -27,7 +29,9 @@ class ViewController: UIViewController {
       let flutterEngine = (UIApplication.shared.delegate as! AppDelegate).flutterEngine
       let flutterViewController =
           FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
-      present(flutterViewController, animated: true, completion: nil)
+//      present(flutterViewController, animated: true, completion: nil)
+        
+        self.navigationController!.pushViewController(flutterViewController, animated: true)
     }
 
 }
