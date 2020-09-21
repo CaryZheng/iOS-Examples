@@ -31,7 +31,23 @@ class ViewController: UIViewController {
           FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
 //      present(flutterViewController, animated: true, completion: nil)
         
+        let channel = FlutterMethodChannel.init(name: "com.zzb", binaryMessenger: flutterViewController as! FlutterBinaryMessenger)
+        channel.setMethodCallHandler { [weak self] (call, result) in
+            if "getToken" == call.method {
+                let userId = call.arguments as? String
+                self?.handleGetToken(result: result, userId: userId!)
+            }
+        }
+        
         self.navigationController!.pushViewController(flutterViewController, animated: true)
+    }
+    
+    private func handleGetToken(result: FlutterResult, userId: String) {
+        print("ViewController getToken userId = \(userId)")
+        
+        let token = "TOKEN_1234567890_TEST"
+        
+        result(token)
     }
 
 }

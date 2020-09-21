@@ -18,13 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        flutterEngine.run()
-        GeneratedPluginRegistrant.register(with: self.flutterEngine);
+        
+        let firstVC = ViewController()
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = UINavigationController(rootViewController: ViewController())
+        self.window?.rootViewController = UINavigationController(rootViewController: firstVC)
         
         self.window?.makeKeyAndVisible()
+        
+        flutterEngine.run()
+        GeneratedPluginRegistrant.register(with: self.flutterEngine);
         
         return true
     }
