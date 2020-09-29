@@ -15,6 +15,9 @@ class ViewController: UIViewController {
     var flutterViewController: FlutterViewController! = nil
     var channel: FlutterMethodChannel! = nil
     
+    let flutterEventHandler = FlutterEventHandler()
+    var flutterEventChannel: FlutterEventChannel! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -30,6 +33,8 @@ class ViewController: UIViewController {
         
         flutterViewController = FlutterViewController(engine: self.flutterEngine, nibName: nil, bundle: nil)
         channel = FlutterMethodChannel(name: "com.zzb", binaryMessenger: flutterViewController as! FlutterBinaryMessenger)
+        
+        initFLutterEventHandler()
     }
 
     @objc func showFlutter() {
@@ -52,7 +57,14 @@ class ViewController: UIViewController {
         
         nativeCallFlutterFunc2()
         
+        flutterEventHandler.startSendEvent()
+        
         self.navigationController!.pushViewController(flutterViewController, animated: true)
+    }
+    
+    private func initFLutterEventHandler() {
+        flutterEventChannel = FlutterEventChannel(name: "com.zzb.event", binaryMessenger: flutterViewController as! FlutterBinaryMessenger)
+        flutterEventChannel.setStreamHandler(flutterEventHandler)
     }
     
     private func nativeCallFlutterFunc() {

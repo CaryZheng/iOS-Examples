@@ -47,9 +47,11 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   static const methodChannel = const MethodChannel('com.zzb');
+  static const eventChannel = EventChannel('com.zzb.event');
 
   String _batteryLevel = 'Unknown battery level.';
   String _token = '-1';
+  String _event = 'null';
 
   // Native call flutter method
   Future<void> handleCallFromNative(MethodCall call) async {
@@ -63,6 +65,20 @@ class _MyHomePageState extends State<MyHomePage> {
       }
       break;
     }
+  }
+
+  eventResultsHandler(dynamic event) {
+    final String normalizedEvent = event.toLowerCase();
+
+    setState(() {
+      _event = normalizedEvent;
+    });
+  }
+
+  eventResultErrorHandler(dynamic error) => print('Received error: ${error.message}');
+
+  void initEventHandler() {
+    eventChannel.receiveBroadcastStream().listen(eventResultsHandler, onError: eventResultErrorHandler);
   }
 
   void _incrementCounter() {
@@ -121,6 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     methodChannel.setMethodCallHandler(this.handleCallFromNative);
+    initEventHandler();
 
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
@@ -166,6 +183,9 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               'token: $_token',
+            ),
+            Text(
+              'event: $_event',
             ),
           ],
         ),
