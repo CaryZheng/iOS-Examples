@@ -46,10 +46,24 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  static const platform = const MethodChannel('com.zzb');
+  static const methodChannel = const MethodChannel('com.zzb');
 
   String _batteryLevel = 'Unknown battery level.';
   String _token = '-1';
+
+  // Native call flutter method
+  Future<void> handleCallFromNative(MethodCall call) async {
+    switch(call.method) {
+      case "didRecieveTranscript":
+        setTokenData();
+      break;
+      case "didRecieveTranscript2": {
+        final String token = call.arguments;
+        setTokenData2(token);
+      }
+      break;
+    }
+  }
 
   void _incrementCounter() {
     setState(() {
@@ -65,7 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> _getBatteryLevel() async {
     String batteryLevel;
     try {
-      final int result = await platform.invokeMethod('getBatteryLevel');
+      // Flutter call native method
+      final int result = await methodChannel.invokeMethod('getBatteryLevel');
       batteryLevel = 'Battery level at $result % .';
     } on PlatformException catch (e) {
       batteryLevel = "Failed to get battery level: '${e.message}'.";
@@ -79,7 +94,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> getToken() async {
     String token;
     try {
-      final String result = await platform.invokeMethod('getToken', ["989898"]);
+      // Flutter call native method
+      final String result = await methodChannel.invokeMethod('getToken', ["989898"]);
       token = result;
     } on PlatformException catch(e) {
       token = "000000";
@@ -90,8 +106,22 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void setTokenData() {
+    setState(() {
+      _token = "didRecieveTranscript_98";
+    });
+  }
+
+  void setTokenData2(String token) {
+    setState(() {
+      _token = "didRecieveTranscript_" + token;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    methodChannel.setMethodCallHandler(this.handleCallFromNative);
+
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //

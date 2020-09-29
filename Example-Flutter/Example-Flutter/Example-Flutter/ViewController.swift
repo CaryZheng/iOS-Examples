@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         channel.setMethodCallHandler({
             [weak self] (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
             
+            // Flutter call native method
             if "getBatteryLevel" == call.method {
                 self?.receiveBatteryLevel(result: result)
                 return
@@ -49,7 +50,20 @@ class ViewController: UIViewController {
             result(FlutterMethodNotImplemented)
         })
         
+        nativeCallFlutterFunc2()
+        
         self.navigationController!.pushViewController(flutterViewController, animated: true)
+    }
+    
+    private func nativeCallFlutterFunc() {
+        // Native call flutter method
+        channel.invokeMethod("didRecieveTranscript", arguments: nil)
+    }
+    
+    private func nativeCallFlutterFunc2() {
+        // Native call flutter method
+        let token = "nativeCallFlutterFunc2"
+        channel.invokeMethod("didRecieveTranscript2", arguments: token)
     }
     
     private func receiveBatteryLevel(result: FlutterResult) {
