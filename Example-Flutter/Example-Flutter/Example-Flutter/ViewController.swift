@@ -11,6 +11,10 @@ import Flutter
 
 class ViewController: UIViewController {
 
+    let flutterEngine = (UIApplication.shared.delegate as! AppDelegate).flutterEngine
+    var flutterViewController: FlutterViewController! = nil
+    var channel: FlutterMethodChannel! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -23,29 +27,47 @@ class ViewController: UIViewController {
         button.frame = CGRect(x: 80.0, y: 210.0, width: 160.0, height: 40.0)
         button.backgroundColor = UIColor.blue
         self.view.addSubview(button)
+        
+        flutterViewController = FlutterViewController(engine: self.flutterEngine, nibName: nil, bundle: nil)
+        channel = FlutterMethodChannel(name: "com.zzb", binaryMessenger: flutterViewController as! FlutterBinaryMessenger)
     }
 
     @objc func showFlutter() {
-      let flutterEngine = (UIApplication.shared.delegate as! AppDelegate).flutterEngine
-      let flutterViewController =
-          FlutterViewController(engine: flutterEngine, nibName: nil, bundle: nil)
-//      present(flutterViewController, animated: true, completion: nil)
-        
-        let channel = FlutterMethodChannel.init(name: "com.zzb", binaryMessenger: flutterViewController as! FlutterBinaryMessenger)
-        channel.setMethodCallHandler { [weak self] (call, result) in
-            if "getToken" == call.method {
-                let userId = call.arguments as? String
+        channel.setMethodCallHandler({
+            [weak self] (call: FlutterMethodCall, result: @escaping FlutterResult) -> Void in
+            
+            if "getBatteryLevel" == call.method {
+                self?.receiveBatteryLevel(result: result)
+                return
+            } else if "getToken" == call.method {
+                let arguments = call.arguments as? [Any]
+                let userId = arguments![0] as? String
                 self?.handleGetToken(result: result, userId: userId!)
+                return
             }
-        }
+            
+            result(FlutterMethodNotImplemented)
+        })
         
         self.navigationController!.pushViewController(flutterViewController, animated: true)
+    }
+    
+    private func receiveBatteryLevel(result: FlutterResult) {
+      let device = UIDevice.current
+      device.isBatteryMonitoringEnabled = true
+      if device.batteryState == UIDevice.BatteryState.unknown {
+        result(FlutterError(code: "UNAVAILABLE",
+                            message: "Battery info unavailable",
+                            details: nil))
+      } else {
+        result(Int(device.batteryLevel * 100))
+      }
     }
     
     private func handleGetToken(result: FlutterResult, userId: String) {
         print("ViewController getToken userId = \(userId)")
         
-        let token = "TOKEN_1234567890_TEST"
+        let token = "TOKEN_1234567890_TEST_userID_" + userId
         
         result(token)
     }
