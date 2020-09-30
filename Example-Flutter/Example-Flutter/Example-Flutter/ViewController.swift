@@ -96,6 +96,8 @@ class ViewController: UIViewController {
         let token = "TOKEN_1234567890_TEST_userID_" + userId
         
         result(token)
+        
+        self.navigationController!.pushViewController(SecondViewController(), animated: true)
     }
 
 }
