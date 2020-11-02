@@ -97,7 +97,7 @@ class ViewController: UIViewController {
         
         result(token)
         
-        self.navigationController!.pushViewController(SecondViewController(), animated: true)
+//        self.navigationController!.pushViewController(SecondViewController(), animated: true)
     }
 
 }
